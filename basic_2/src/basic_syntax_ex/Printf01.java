@@ -8,12 +8,12 @@ public class Printf01 {
 		// 소수점 이하도 출력 
 		
 		String name = "홍길동";
-		double kor = 80.05;
-		double eng = 85.99;
+		int kor = 80;
+		int eng = 81;
 		
-		double tot = kor + eng;
-		double avg = tot / 2;
+		int tot = kor + eng;
+		double avg = (int)((tot / 2.0) + 0.5) ; // 뒤에 소수점 붙히면 더블형으로 됨
 		
-		System.out.printf("%s님 총점: %.1f 평균:%.2f\n", name, tot, avg);
+		System.out.printf("%s님 총점: %d 평균:%f\n", name, tot, avg);
 	}
 }

@@ -14,6 +14,6 @@ public class Printf01 {
 		double tot = kor + eng;
 		double avg = tot / 2;
 		
-		System.out.printf("%s님 총점: %f 평균:%f\n", name, tot, avg);
+		System.out.printf("%s님 총점: %.1f 평균:%.2f\n", name, tot, avg);
 	}
 }

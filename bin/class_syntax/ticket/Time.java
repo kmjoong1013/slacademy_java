@@ -10,11 +10,55 @@ package org.ticket;
 //
 //
 
+import java.util.Scanner;
 
-
-
-public class Time {
-	public int morningTime;
-	public int dayTime;
-	public int nightTime;
+public class Time extends Audience{
+	
+	public int discountTime;
+	public int amount;
+	
+	
+	public Time() {
+	Scanner in = new Scanner(System.in);
+	System.out.print("할인 여부 (1.조조 2.일반 3.심야) : ");
+	discountTime = in.nextInt();
+	
+	this.personCnt =personCnt;
+	this.adult=adult;
+	this.child=child;
+	compute();
+	
+	}
+	
+	public void prn() {
+		
+		System.out.println("=====================================");
+		System.out.println("영화 예매 정보입니다.");
+		System.out.print("영화 정보 : ");
+		compute1();
+		System.out.println("성인수 : "+ personCnt);
+		System.out.println("아동수 : "+child);
+		System.out.println("할인 여부 (1.조조 2.일반 3.심야) : "+ discountTime);
+		System.out.println("총금액 : "+amount);
+	}
+	
+	public void compute() {
+		if (discountTime==1) {
+			amount = (personCnt * 6000)+(child * 4000);
+		}else if (discountTime==2) {
+			amount = (personCnt * 9000) + (child * 5000);
+		}else if (discountTime==3) {
+			amount = (personCnt * 8000) + (child * 5000);
+		}
+		
+	}
+	public void compute1() {
+		if (movieNum==1) {
+			System.out.println("어메이징 스파이더맨");
+		}else if (movieNum==2) {
+			System.out.println("알라딘");
+		}else if (movieNum==3) {
+			System.out.println("기생충");
+		}
+	}
 }

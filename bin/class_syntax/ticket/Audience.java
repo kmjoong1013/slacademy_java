@@ -10,11 +10,31 @@ package org.ticket;
 //
 //
 
-
-
+import java.util.Scanner;
 
 public class Audience {
 	public int personCnt;
 	public int adult;
 	public int child;
+	public int movieNum;  //영화 번호
+	
+
+	public Audience() {
+		Scanner in  = new Scanner(System.in);
+		System.out.println("영화관 상영 시간표 입니다. 영화를 선택하여 주십시오.");
+		System.out.println( "1. 어메이징 스파이더맨, 1. 조조 | 2. 일반 | 3. 심야,어드벤쳐");
+		System.out.println( "2. 알라딘, 1. 조조 | 2. 일반 | 3. 심야 , 판타지");
+		System.out.println( "3. 기생충, 1. 조조 | 2. 일반 | 3. 심야 , 스릴러");
+		System.out.println("===============================================================");
+		
+		System.out.print("영화 선택 : ");
+		movieNum = in.nextInt();
+		System.out.print("성인수 : ");
+		personCnt = in.nextInt();
+		System.out.print("아동수 : ");
+		
+		child = in.nextInt();
+		//compute();
+	}
+	
 }

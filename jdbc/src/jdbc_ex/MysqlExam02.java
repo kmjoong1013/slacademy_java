@@ -25,11 +25,16 @@ public class MysqlExam02 {
 		
 		System.out.print("수정할 필드(name or price or color) 입력 : ");
 		String fieldName = in.next();
+		/*
+		 * if (fieldName.equals("name")) { fieldName = "name"; }else if
+		 * (fieldName.equals("price")) { fieldName = "price"; }else if
+		 * (fieldName.equals("color")) { fieldName = "color"; }
+		 */
 		
 		System.out.print("수정할 값 입력 : ");
-		int price = in.nextInt();
+		String value = in.next();
 		
-		String query =" update goods set " + fieldName  + " = ?  where code = ? "; 
+		String query =" update goods set " + fieldName  + " = ?  where code = ? ";
 		
 		Connection con = null; //커넥션 준비단계
 		PreparedStatement psmt = null; //query실행 객체
@@ -37,18 +42,10 @@ public class MysqlExam02 {
 			Class.forName(driver); // 드라이버 로딩 
 			con = DriverManager.getConnection(url, "root", "st00"); // 컨넥션
 			psmt = con.prepareStatement(query);
-			
-			psmt.setString(1, code);//상품코드
-			
-			if (fieldName.equals("name")) {
-				String nm = 
-			}else if (fieldName.equals("price")) {
-				
-			}else {
-				
-			}
-			psmt.setString(2, fieldName);//필드네임
-			psmt.setInt(3, price);//수정할 값
+		
+			psmt.setString(1, value);//수정할 값
+			psmt.setString(2, code);//상품코드
+			//psmt.setString(2, fieldName);//필드네임
 			
 			psmt.executeUpdate(); //insert update delete  query executeUpdate()로 실행
 			System.out.println("connection ok!!!");
